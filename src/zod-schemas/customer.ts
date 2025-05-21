@@ -1,4 +1,4 @@
-import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod"
 import { customers } from "@/db/schema"
 
 export const insertCustomerSchema = createInsertSchema(customers, {
@@ -14,6 +14,6 @@ export const insertCustomerSchema = createInsertSchema(customers, {
 
 export const selectCustomerSchema = createSelectSchema(customers)
 
-export const insertCustomerSchemaType = typeof insertCustomerSchema._type
+export type insertCustomerSchemaType = typeof insertCustomerSchema._type
 
-export const selectCustomerSchemaType = typeof selectCustomerSchema._type
+export type selectCustomerSchemaType = typeof selectCustomerSchema._type
