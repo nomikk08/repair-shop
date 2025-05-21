@@ -1,6 +1,7 @@
 import { getCustomer } from "@/lib/queries/getCustomer";
 import { getTicket } from "@/lib/queries/getTicket";
 import { BackButton } from "@/components/BackButton";
+import TicketForm from "@/app/(rs)/tickets/form/ticketForm";
 
 export default async function TicketFormPage({
                                                 searchParams,
@@ -42,6 +43,7 @@ export default async function TicketFormPage({
 
             // return ticket form
             console.log(customer)
+            return <TicketForm customer={customer} />
         }
 
         // Edit Ticket Form
@@ -61,6 +63,7 @@ export default async function TicketFormPage({
             const customer = await getCustomer(ticket.customerId)
             console.log("Ticket: ", ticket)
             console.log("Customer: ", customer)
+            return <TicketForm customer={customer} ticket={ticket} />
         }
     }
     catch (e) {
