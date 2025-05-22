@@ -9,7 +9,7 @@ export const insertCustomerSchema = createInsertSchema(customers, {
     state: (schema) => schema.length(2, "State must be exactly 2 characters"),
     email: (schema) => schema.email("Invalid Email"),
     zip: (schema) => schema.regex(/^\d{5}(-\d{4})?$/, "Invalid zip format. Use XXXXX or XXXXX-XXXX"),
-    phone: (schema) => schema.regex(/^\d{3}-\d{3}-\d{5}$/, "Invalid phone number format. Use XXX-XXX-XXXX")
+    phone: (schema) => schema.regex(/^\d{3}-\d{3}-\d{4}$/, "Invalid phone number format. Use XXX-XXX-XXXX")
 })
 
 export const selectCustomerSchema = createSelectSchema(customers)

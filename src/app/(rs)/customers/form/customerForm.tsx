@@ -4,11 +4,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form"
 import { Button } from "@/components/ui/button";
-import {
-    type selectCustomerSchemaType,
-    type insertCustomerSchemaType,
-    insertCustomerSchema
-} from "@/zod-schemas/customer";
+import { type selectCustomerSchemaType, type insertCustomerSchemaType, insertCustomerSchema } from "@/zod-schemas/customer";
+import { InputWithLable } from "@/components/inputs/InputWithLabel";
 
 type Props = {
     customer?: selectCustomerSchemaType,
@@ -48,8 +45,59 @@ export default function CustomerForm({ customer }: Props) {
                 </h2>
             </div>
             <Form {...form}>
-                <form className="flex flex-col gap-4 sm:flex-row sm:gap-8" onSubmit={form.handleSubmit(submitForm)}>
-                    <p>{JSON.stringify(form.getValues())}</p>
+                <form className="flex flex-col gap-4 md:flex-row md:gap-8" onSubmit={form.handleSubmit(submitForm)}>
+
+                    <div className="flex flex-col gap-4 w-full max-w-xs">
+
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="First Name"
+                            nameInSchema="firstName"
+                        />
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="Last Name"
+                            nameInSchema="lastName"
+                        />
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="Address 1"
+                            nameInSchema="address1"
+                        />
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="Address 2"
+                            nameInSchema="address2"
+                        />
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="City"
+                            nameInSchema="city"
+                        />
+
+                    </div>
+
+                    <div className="flex flex-col gap-4 w-full max-w-xs">
+
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="Zip Code"
+                            nameInSchema="zip"
+                        />
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="Email"
+                            nameInSchema="email"
+                        />
+                        <InputWithLable<insertCustomerSchemaType>
+                            fieldTitle="Phone"
+                            nameInSchema="phone"
+                        />
+
+                        <div className="flex gap-2">
+                            <Button type="submit" className="w-3/4" variant="default" title="Save">
+                                Save
+                            </Button>
+                            <Button type="button" variant="destructive" title="Reset" onClick={() => form.reset(defaultValues)}>
+                                Reset
+                            </Button>
+                        </div>
+
+                    </div>
+
                 </form>
             </Form>
         </div>
