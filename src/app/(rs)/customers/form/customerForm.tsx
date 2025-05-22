@@ -6,6 +6,7 @@ import { Form } from "@/components/ui/form"
 import { Button } from "@/components/ui/button";
 import { type selectCustomerSchemaType, type insertCustomerSchemaType, insertCustomerSchema } from "@/zod-schemas/customer";
 import { InputWithLable } from "@/components/inputs/InputWithLabel";
+import { TextAreaWithLabel} from "@/components/inputs/TextAreaWithLabel";
 
 type Props = {
     customer?: selectCustomerSchemaType,
@@ -85,6 +86,10 @@ export default function CustomerForm({ customer }: Props) {
                         <InputWithLable<insertCustomerSchemaType>
                             fieldTitle="Phone"
                             nameInSchema="phone"
+                        />
+                        <TextAreaWithLabel<insertCustomerSchemaType>
+                            fieldTitle="Notes"
+                            nameInSchema="notes"
                         />
 
                         <div className="flex gap-2">
